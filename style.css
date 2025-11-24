@@ -1,192 +1,20 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-.h2{
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-body {
-  background: #ffffff;
+/* --- 1. GLOBAL IMPORTS & RESET --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;700&display=swap');
+
+:root {
+    /* Original Image Colors */
+    --primary-gold: #B88E2F;
+    --section-bg: #FCF8F3;
+    --card-bg: #F4F5F7;
+    --hero-box-bg: #F9E9D1;
+    --text-dark: #3A3A3A;
+    --text-medium: #616161;
+    --text-light: #B0B0B0;
+    --discount-red: #E97171;
+    --new-green: #2EC1AC;
+    --navbar-height: 72px; /* Set Nav height for body padding */
 }
 
-/* NAVBAR MAIN */
-.navbar {
-  width: 100%;
-  padding: 20px 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #ffffff;
-  box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-}
-
-/* LOGO SECTION */
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo img {
-  width: 50px; 
-  height: 32px;
-}
-
-.logo h2 {
-  font-size: 24px;
-  font-weight: 700;
-  color: #000;
-}
-
-/* NAV LINKS */
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 40px;
-}
-
-.nav-links li a {
-  font-style: bold;
-  text-decoration: none;
-  font-size: 16px;
-  color: #000;
-  transition: 0.3s ease;
-}
-
-/* HOVER EFFECT */
-.nav-links li a:hover {
-  color: yellow;       /* gold look */
-  border-bottom: 2px solid rgb(55, 68, 82);
-  padding-bottom: 5px;
-}
-
-/* ICONS */
-.icons {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-}
-
-.icons i {
-  font-size: 20px;
-  cursor: pointer;
-  transition: 0.5s ease;
-}
-
-/* ICON HOVER EFFECT */
-.icons i:hover {
-  color: #b88e2f;
-  transform: scale(1.15);
-}
-.hero {
-  width: 100%;
-  height: 480px;
-  position: relative;
-}
-
-.hero-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.hero-box {
-  position: absolute;
-  top: 60%;
-  right: 8%;
-  transform: translateY(-50%);
-  background: #f9e9d1;
-  padding: 40px;
-  width: 420px;
-  border-radius: 10px;
-}
-
-.tag {
-  font-size: 13px;
-  letter-spacing: 2px;
-  color: #444;
-}
-
-.hero-box h1 {
-  font-size: 32px;
-  color: #b88e2f;
-  font-weight: 700;
-  margin: 10px 0;
-  line-height: 38px;
-}
-
-.desc {
-  font-size: 15px;
-  color: #555;
-  margin-bottom: 25px;
-}
-
-.btn {
-  background: #b88e2f;
-  color: white;
-  padding: 12px 40px;
-  border: none;
-  cursor: pointer;
-  font-size: 15px;
-  font-weight: 600;
-  transition: 0.3s ease;
-}
-
-.btn:hover {
-  background: #8b6c23;
-}
-.browse-section {
-  width: 100%;
-  text-align: center;
-  padding: 60px 0;
-  background: #ffffff;
-}
-
-/* Title */
-.browse-title h1 {
-  font-size: 28px;
-  font-weight: 700;
-  color: #3a3a3a;
-  margin-bottom: 5px;
-}
-
-.browse-title p {
-  font-size: 14px;
-  color: #7a7a7a;
-  margin-bottom: 40px;
-}
-
-/* CONTAINER */
-.browse-container {
-  display: flex;
-  justify-content: center;
-  gap: 35px;
-}
-
-/* SINGLE BOX */
-.browse-box {
-  width: 300px;
-}
-
-.browse-box img {
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.browse-box h3 {
-  margin-top: 15px;
-  font-size: 18px;
-  color: #3a3a3a;
-  font-weight: 600;
-}
-/* --- IMPORT FONTS --- */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-
-/* --- GLOBAL RESET --- */
 * {
     margin: 0;
     padding: 0;
@@ -194,13 +22,201 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+/* Add top padding to body to prevent content from hiding behind fixed navbar */
 body {
-    background-color: #ffffff;
+    background: #ffffff;
+    padding-top: var(--navbar-height); /* Space for fixed navbar */
 }
 
-/* --- MAIN SECTION --- */
+/* Base Button Style (Used in Hero, Products) */
+.btn {
+    background: var(--primary-gold);
+    color: white;
+    padding: 12px 40px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.3s ease;
+    border-radius: 0;
+}
+
+.btn:hover {
+    background: #8b6c23;
+}
+
+/* --- 2. NAVBAR MAIN (FIXED) --- */
+.navbar {
+    width: 100%;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    
+    /* 🔥 FIX: Fixed Navbar Properties 🔥 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure it is on top of all content */
+    height: var(--navbar-height); /* Set a fixed height */
+}
+
+/* LOGO SECTION */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    width: 50px; 
+    height: 32px;
+}
+
+.logo h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #000;
+}
+
+/* NAV LINKS */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links li a {
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 16px;
+    color: #000;
+    transition: 0.3s ease;
+}
+
+/* HOVER EFFECT */
+.nav-links li a:hover {
+    color: var(--primary-gold); 
+    border-bottom: 2px solid var(--text-dark);
+    padding-bottom: 5px;
+}
+
+/* ICONS */
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.icons i {
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.5s ease;
+    color: #000;
+}
+
+/* ICON HOVER EFFECT */
+.icons i:hover {
+    color: var(--primary-gold);
+    transform: scale(1.15);
+}
+
+/* --- 3. HERO SECTION --- */
+.hero {
+    width: 100%;
+    height: 480px;
+    position: relative;
+    /* Hero section starts right after the fixed navbar */
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-box {
+    position: absolute;
+    top: 60%;
+    right: 8%;
+    transform: translateY(-50%);
+    background: var(--hero-box-bg);
+    padding: 40px;
+    width: 420px;
+    border-radius: 10px;
+}
+
+.tag {
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #444;
+}
+
+.hero-box h1 {
+    font-size: 32px;
+    color: var(--primary-gold);
+    font-weight: 700;
+    margin: 10px 0;
+    line-height: 38px;
+}
+
+.desc {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* --- 4. BROWSE CATEGORIES SECTION --- */
+.browse-section {
+    width: 100%;
+    text-align: center;
+    padding: 60px 0;
+    background: #ffffff;
+}
+
+.browse-title h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+}
+
+.browse-title p {
+    font-size: 14px;
+    color: #7a7a7a;
+    margin-bottom: 40px;
+}
+
+.browse-container {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    padding: 0 40px;
+}
+
+.browse-box {
+    width: 300px;
+}
+
+.browse-box img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.browse-box h3 {
+    margin-top: 15px;
+    font-size: 18px;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+/* --- 5. PRODUCT GRID SECTION --- */
 .products-section {
-    padding: 60px 8%; /* Side padding for spacing */
+    padding: 60px 8%;
     text-align: center;
     background-color: #ffffff;
 }
@@ -208,48 +224,43 @@ body {
 .section-title {
     font-size: 40px;
     font-weight: 700;
-    color: #3a3a3a;
+    color: var(--text-dark);
     margin-bottom: 32px;
 }
 
-/* --- GRID CONTAINER (4 COLUMNS FIXED) --- */
 .products-grid-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Strictly 4 columns */
+    grid-template-columns: repeat(4, 1fr);
     gap: 32px;
     justify-content: center;
     width: 100%;
     margin-bottom: 40px;
 }
 
-/* --- PRODUCT CARD (EQUAL HEIGHT & DESIGN) --- */
 .product-card {
-    background-color: #F4F5F7; /* Matches image background */
+    background-color: var(--card-bg);
     position: relative;
     overflow: hidden;
     width: 100%;
-    height: 100%; /* Full height of grid cell */
+    height: 100%;
     display: flex;
-    flex-direction: column; /* Stack image and text vertically */
-    border: none;
+    flex-direction: column;
 }
 
-/* --- IMAGE AREA --- */
 .image-box {
     position: relative;
     width: 100%;
-    height: 300px; /* Fixed height for uniformity */
+    height: 300px;
     flex-shrink: 0;
 }
 
 .image-box img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Crops image to fit perfectly */
+    object-fit: cover;
     display: block;
 }
 
-/* --- TAGS (NEW / DISCOUNT) --- */
 .card-tag {
     position: absolute;
     top: 20px;
@@ -267,19 +278,18 @@ body {
 }
 
 .card-tag.discount {
-    background-color: #E97171; /* Reddish Pink */
+    background-color: var(--discount-red);
 }
 
 .card-tag.new {
-    background-color: #2EC1AC; /* Greenish Cyan */
+    background-color: var(--new-green);
 }
 
-/* --- TEXT AREA --- */
 .text-box {
-    background-color: #F4F5F7;
+    background-color: var(--card-bg);
     padding: 16px 20px 30px 20px;
     text-align: left;
-    flex-grow: 1; /* Pushes background to fill remaining space */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -287,20 +297,19 @@ body {
 
 .text-box h3 {
     font-size: 24px;
-    font-weight: 700; /* Extra Bold */
-    color: #3A3A3A;
+    font-weight: 700;
+    color: var(--text-dark);
     margin-bottom: 8px;
 }
 
 .text-box p {
     font-size: 16px;
     font-weight: 500;
-    color: #898989; /* Muted Grey */
+    color: #898989;
     margin-bottom: 12px;
     line-height: 1.5;
 }
 
-/* --- PRICES --- */
 .price-box {
     display: flex;
     align-items: center;
@@ -310,35 +319,34 @@ body {
 .current-price {
     font-size: 20px;
     font-weight: 600;
-    color: #3A3A3A;
+    color: var(--text-dark);
 }
 
 .old-price {
     font-size: 16px;
     text-decoration: line-through;
-    color: #B0B0B0;
+    color: var(--text-light);
     font-weight: 400;
 }
 
-/* --- HOVER OVERLAY (ADD TO CART) --- */
+/* Hover Overlay */
 .hover-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(58, 58, 58, 0.72); /* Dark overlay */
+    background-color: rgba(58, 58, 58, 0.72);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    opacity: 0; /* Hidden by default */
+    opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease-in-out;
     z-index: 10;
 }
 
-/* Show overlay on hover */
 .product-card:hover .hover-overlay {
     opacity: 1;
     visibility: visible;
@@ -346,18 +354,14 @@ body {
 
 .add-to-cart-btn {
     background-color: #ffffff;
-    color: #B88E2F; /* Gold Text */
-    border: none;
+    color: var(--primary-gold);
     padding: 12px 55px;
-    font-size: 16px;
     font-weight: 700;
-    cursor: pointer;
     margin-bottom: 24px;
-    transition: 0.3s;
 }
 
 .add-to-cart-btn:hover {
-    background-color: #B88E2F;
+    background-color: var(--primary-gold);
     color: #ffffff;
 }
 
@@ -378,10 +382,9 @@ body {
 }
 
 .hover-icons span:hover {
-    color: #B88E2F;
+    color: var(--primary-gold);
 }
 
-/* --- SHOW MORE BUTTON --- */
 .show-more-box {
     width: 100%;
     display: flex;
@@ -391,8 +394,8 @@ body {
 
 .show-more-btn {
     background-color: transparent;
-    border: 1px solid #B88E2F;
-    color: #B88E2F;
+    border: 1px solid var(--primary-gold);
+    color: var(--primary-gold);
     padding: 12px 75px;
     font-size: 16px;
     font-weight: 600;
@@ -401,29 +404,13 @@ body {
 }
 
 .show-more-btn:hover {
-    background-color: #B88E2F;
+    background-color: var(--primary-gold);
     color: #ffffff;
 }
 
-/* --- RESPONSIVENESS (OPTIONAL BUT GOOD) --- */
-/* Agar screen bohat choti ho jaye to columns adjust hon */
-@media (max-width: 1200px) {
-    .products-grid-container {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-@media (max-width: 900px) {
-    .products-grid-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-@media (max-width: 600px) {
-    .products-grid-container {
-        grid-template-columns: 1fr;
-    }
-}/* --- INSPIRATION SECTION --- */
+/* --- 6. INSPIRATION SECTION (SLIDER) --- */
 .inspiration-section {
-    background-color: #FCF8F3;
+    background-color: var(--section-bg);
     width: 100%;
     padding: 40px 0 40px 8%;
     display: flex;
@@ -433,12 +420,10 @@ body {
     position: relative;
 }
 
-/* HIDE RADIO INPUTS */
 input[name="slider"] {
     display: none;
 }
 
-/* --- LEFT TEXT CONTENT --- */
 .ins-text-content {
     width: 35%;
     min-width: 300px;
@@ -448,19 +433,19 @@ input[name="slider"] {
     font-size: 40px;
     font-weight: 700;
     line-height: 1.2;
-    color: #3a3a3a;
+    color: var(--text-dark);
     margin-bottom: 15px;
 }
 
 .ins-text-content p {
     font-size: 16px;
-    color: #616161;
+    color: var(--text-medium);
     margin-bottom: 25px;
     line-height: 1.5;
 }
 
 .explore-btn {
-    background-color: #B88E2F;
+    background-color: var(--primary-gold);
     color: white;
     border: none;
     padding: 12px 36px;
@@ -470,7 +455,10 @@ input[name="slider"] {
     transition: 0.3s;
 }
 
-/* --- SLIDER CONTAINER --- */
+.explore-btn:hover {
+    background-color: #8b6c23;
+}
+
 .ins-slider-container {
     width: 65%;
     position: relative;
@@ -482,16 +470,15 @@ input[name="slider"] {
 .slider-track {
     display: flex;
     gap: 24px;
-    /* Smooth Transition for sliding */
     transition: transform 0.6s ease-in-out; 
 }
 
 .slide {
     position: relative;
-    width: 320px; /* Default small width */
-    height: 400px; /* Default small height */
+    width: 320px; 
+    height: 400px; 
     flex-shrink: 0;
-    transition: all 0.6s ease; /* Smooth resizing */
+    transition: all 0.6s ease;
     overflow: hidden;
 }
 
@@ -499,9 +486,9 @@ input[name="slider"] {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
 
-/* --- CONTENT BOX INSIDE IMAGE --- */
 .slide-content {
     position: absolute;
     bottom: 24px;
@@ -511,9 +498,9 @@ input[name="slider"] {
     padding: 32px;
     display: flex;
     align-items: flex-end;
-    opacity: 0; /* Hidden by default */
-    transition: 0.3s;
+    opacity: 0;
     visibility: hidden;
+    transition: 0.3s;
 }
 
 .content-left {
@@ -522,7 +509,7 @@ input[name="slider"] {
 }
 
 .content-left span {
-    color: #616161;
+    color: var(--text-medium);
     font-size: 14px;
     display: flex;
     align-items: center;
@@ -532,11 +519,11 @@ input[name="slider"] {
 
 .content-left h3 {
     font-size: 24px;
-    color: #3a3a3a;
+    color: var(--text-dark);
 }
 
 .arrow-box {
-    background-color: #B88E2F;
+    background-color: var(--primary-gold);
     color: white;
     width: 48px;
     height: 48px;
@@ -545,15 +532,14 @@ input[name="slider"] {
     align-items: center;
 }
 
-/* --- LOGIC: CHECKED STATE HANDLING --- */
-
-/* 1. Move Track based on checked input (344px = 320px width + 24px gap) */
+/* SLIDER LOGIC */
+/* 344px = 320px width + 24px gap */
 #s1:checked ~ .ins-slider-container .slider-track { transform: translateX(0); }
 #s2:checked ~ .ins-slider-container .slider-track { transform: translateX(-344px); }
 #s3:checked ~ .ins-slider-container .slider-track { transform: translateX(-688px); }
 #s4:checked ~ .ins-slider-container .slider-track { transform: translateX(-1032px); }
 
-/* 2. Resize Active Slide (Make it Big) */
+/* Resize Active Slide */
 #s1:checked ~ .ins-slider-container .slide1,
 #s2:checked ~ .ins-slider-container .slide2,
 #s3:checked ~ .ins-slider-container .slide3,
@@ -562,7 +548,7 @@ input[name="slider"] {
     height: 500px;
 }
 
-/* 3. Show Content Box for Active Slide */
+/* Show Content Box for Active Slide */
 #s1:checked ~ .ins-slider-container .slide1 .slide-content,
 #s2:checked ~ .ins-slider-container .slide2 .slide-content,
 #s3:checked ~ .ins-slider-container .slide3 .slide-content,
@@ -571,7 +557,7 @@ input[name="slider"] {
     visibility: visible;
 }
 
-/* --- ARROW NAVIGATION LOGIC --- */
+/* Arrow Navigation */
 .arrow-btn {
     position: absolute;
     right: 50px;
@@ -581,9 +567,9 @@ input[name="slider"] {
     height: 48px;
     background-color: white;
     border-radius: 50%;
-    color: #B88E2F;
+    color: var(--primary-gold);
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    display: none; /* Hide all arrows by default */
+    display: none;
     justify-content: center;
     align-items: center;
     cursor: pointer;
@@ -593,18 +579,16 @@ input[name="slider"] {
 }
 
 .arrow-btn:hover {
-    background-color: #B88E2F;
+    background-color: var(--primary-gold);
     color: white;
 }
 
-/* Show the CORRECT arrow based on which slide is active */
 #s1:checked ~ .ins-slider-container .arrows-container .next-1 { display: flex; }
 #s2:checked ~ .ins-slider-container .arrows-container .next-2 { display: flex; }
 #s3:checked ~ .ins-slider-container .arrows-container .next-3 { display: flex; }
 #s4:checked ~ .ins-slider-container .arrows-container .next-4 { display: flex; }
 
-
-/* --- DOTS NAVIGATION LOGIC --- */
+/* Dots Navigation */
 .dots-container {
     position: absolute;
     bottom: 30px;
@@ -641,18 +625,19 @@ input[name="slider"] {
     width: 24px;
     height: 24px;
     background-color: transparent;
-    border: 1px solid #B88E2F;
+    border: 1px solid var(--primary-gold);
 }
 
 #s1:checked ~ .ins-slider-container .dots-container .dot1 .inner-dot,
 #s2:checked ~ .ins-slider-container .dots-container .dot2 .inner-dot,
 #s3:checked ~ .ins-slider-container .dots-container .dot3 .inner-dot,
 #s4:checked ~ .ins-slider-container .dots-container .dot4 .inner-dot {
-    background-color: #B88E2F;
+    background-color: var(--primary-gold);
 }
-/* --- SHARE SETUP SECTION --- */
+
+/* --- 7. SHARE SETUP SECTION (GRID) --- */
 .share-setup-section {
-    padding: 40px 0 60px 0; /* Thodi padding adjust ki */
+    padding: 40px 0 60px 0;
     text-align: center;
     background-color: #ffffff;
     width: 100%;
@@ -665,32 +650,26 @@ input[name="slider"] {
 .share-title p {
     font-size: 18px;
     font-weight: 600;
-    color: #616161;
+    color: var(--text-medium);
 }
 
 .share-title h1 {
     font-size: 36px;
     font-weight: 700;
-    color: #3a3a3a;
+    color: var(--text-dark);
 }
 
-/* --- TIGHT GRID SYSTEM (Corrected) --- */
 .gallery-grid {
     display: grid;
     width: 100%;
-    max-width: 1300px; /* Thoda max-width kam kiya taake tight rahe */
+    max-width: 1300px;
     margin: 0 auto;
-    /* 12 Columns */
     grid-template-columns: repeat(12, 1fr); 
-    /* MISTAKE FIXED HERE: Rows ki height ko chota kiya hai aur fix kiya hai */
-    grid-template-rows: repeat(10, 40px); /* Zyada rows, kam height = better control */
-    /* MISTAKE FIXED HERE: Gap ko 16px se 8px kar diya */
+    grid-template-rows: repeat(10, 40px);
     gap: 8px;
     padding: 0 10px;
-    /* overflow hidden hataya taake images kat na jayen agar tight hon */
 }
 
-/* --- COMMON IMAGE STYLES --- */
 .gallery-item {
     position: relative;
     overflow: hidden;
@@ -700,7 +679,7 @@ input[name="slider"] {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block; /* Extra space hatane ke liye */
+    display: block;
     transition: transform 0.3s ease;
 }
 
@@ -708,93 +687,25 @@ input[name="slider"] {
     transform: scale(1.05);
 }
 
-/* --- EXACT POSITIONS (TIGHTENED COORDINATES) --- */
+/* Grid Layout */
+.item-1 { grid-column: 1 / 2; grid-row: 1 / 7; }
+.item-2 { grid-column: 2 / 5; grid-row: 2 / 7; }
+.item-3 { grid-column: 1 / 3; grid-row: 7 / 11; }
+.item-4 { grid-column: 3 / 5; grid-row: 7 / 10; }
+.item-5 { grid-column: 5 / 8; grid-row: 3 / 9; }
+.item-6 { grid-column: 8 / 11; grid-row: 2 / 6; }
+.item-7 { grid-column: 11 / 13; grid-row: 1 / 6; }
+.item-8 { grid-column: 8 / 10; grid-row: 6 / 11; }
+.item-9 { grid-column: 10 / 12; grid-row: 6 / 10; }
 
-/* 1. Left Tall Shelf */
-.item-1 {
-    grid-column: 1 / 2;
-    grid-row: 1 / 7; /* Lamba kiya */
-}
-
-/* 2. Laptop Desk (Wide) */
-.item-2 {
-    grid-column: 2 / 5;
-    grid-row: 2 / 7; /* Thoda niche se start, height kam */
-}
-
-/* 3. Chair (Bottom Left) - Moved UP */
-.item-3 {
-    grid-column: 1 / 3;
-    grid-row: 7 / 11; /* Theek shelf ke niche */
-}
-
-/* 4. Vase/Pot (Center Left) - Moved UP */
-.item-4 {
-    grid-column: 3 / 5;
-    grid-row: 7 / 10; /* Theek laptop ke niche */
-}
-
-/* 5. CENTER MAIN (Dining Table) - Anchor */
-.item-5 {
-    grid-column: 5 / 8;
-    grid-row: 3 / 9; /* Height adjust ki taake baakiyon se match kare */
-}
-
-/* 6. Bedroom (Top Right Square) */
-.item-6 {
-    grid-column: 8 / 11;
-    grid-row: 2 / 6;
-}
-
-/* 7. Frames (Bottom Right Vertical) - Moved UP */
-.item-7 {
-    grid-column: 11 / 13;
-    grid-row: 1 / 6; /* Bedroom ke barabar start */
-}
-
-/* 8. Kitchen Shelf (Small Horizontal) - Moved UP */
-.item-8 {
-    grid-column: 8 / 10;
-    grid-row: 6 / 11; /* Bedroom ke theek niche */
-}
-
-/* 9. Brick Wall (Far Right Edge) */
-.item-9 {
-    grid-column: 10 / 12;
-    grid-row: 6 / 10; /* Frames ke niche */
-}
-
-/* --- MOBILE RESPONSIVE --- */
-@media (max-width: 768px) {
-    .gallery-grid {
-        display: flex;
-        flex-direction: column;
-        height: auto;
-        gap: 15px; /* Mobile pe thoda gap theek hai */
-    }
-    
-    .gallery-item {
-        width: 100%;
-        height: 250px;
-        grid-column: auto;
-        grid-row: auto;
-    }
-}
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-body {
-    background: #fff;
-}
-
+/* --- 8. FOOTER SECTION (STICKY/FIXED) --- */
 .footer {
     background: #ffffff;
     padding: 60px 100px 20px;
     color: #000;
+    border-top: 1px solid #D8D8D8;
+    
+    
 }
 
 .footer-container {
@@ -808,19 +719,6 @@ body {
     line-height: 1.6;
 }
 
-.logo {
-    font-size: 28px;
-    margin-bottom: 15px;
-    font-weight: bold;
-}
-
-.footer-links,
-.footer-help,
-.footer-newsletter {
-    display: flex;
-    flex-direction: column;
-}
-
 .footer-links h4,
 .footer-help h4,
 .footer-newsletter h4 {
@@ -828,6 +726,7 @@ body {
     color: gray;
     font-size: 16px;
     text-transform: uppercase;
+    font-weight: 600;
 }
 
 .footer-links a,
@@ -835,11 +734,13 @@ body {
     margin-bottom: 10px;
     color: #000;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .footer-links a:hover,
 .footer-help a:hover {
-    text-decoration: underline;
+    color: var(--primary-gold);
+    text-decoration: none;
 }
 
 .footer-newsletter .input-box {
@@ -862,6 +763,7 @@ body {
     font-size: 12px;
     font-weight: bold;
     cursor: pointer;
+    color: #000;
 }
 
 .footer-bottom {
@@ -872,35 +774,32 @@ body {
 }
 
 /* ================================
-   GLOBAL RESPONSIVE FIXES
+    GLOBAL RESPONSIVE FIXES
 ================================ */
 
-/* --- NAVBAR --- */
+/* --- NAVBAR RESPONSIVENESS FIX --- */
+/* Adjust body padding when navbar wraps */
 @media (max-width: 900px) {
     .navbar {
         padding: 15px 30px;
         flex-direction: column;
         gap: 15px;
+        height: auto; /* Allow height to adjust when wrapping */
     }
-
-    .nav-links {
-        gap: 20px;
-    }
+    .nav-links { gap: 20px; }
+    
+    /* Adjust body padding for the auto-height fixed navbar */
+    body { padding-top: 120px; } 
 }
 
 @media (max-width: 600px) {
-    .nav-links {
-        flex-wrap: wrap;
-        gap: 15px;
-        justify-content: center;
-    }
+    .nav-links { flex-wrap: wrap; gap: 15px; justify-content: center; }
+    body { padding-top: 150px; } /* More padding for smaller screens */
 }
 
-/* --- HERO SECTION --- */
+/* --- OTHER RESPONSIVENESS  --- */
 @media (max-width: 900px) {
-    .hero {
-        height: 380px;
-    }
+    .hero { height: 380px; }
     .hero-box {
         width: 70%;
         right: 50%;
@@ -910,120 +809,51 @@ body {
 }
 
 @media (max-width: 600px) {
-    .hero {
-        height: 320px;
-    }
-    .hero-box {
-        width: 85%;
-        padding: 25px;
-    }
+    .hero { height: 320px; }
+    .hero-box { width: 85%; padding: 25px; }
 }
 
-/* --- BROWSE SECTION --- */
 @media (max-width: 900px) {
-    .browse-container {
-        flex-wrap: wrap;
-        gap: 25px;
-    }
+    .browse-container { flex-wrap: wrap; gap: 25px; }
 }
 
-/* --- PRODUCTS GRID --- */
+@media (max-width: 1200px) {
+    .products-grid-container { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 900px) {
+    .products-grid-container { grid-template-columns: repeat(2, 1fr); }
+}
 @media (max-width: 600px) {
-    .text-box h3 {
-        font-size: 20px;
-    }
-    .text-box p {
-        font-size: 14px;
-    }
+    .products-grid-container { grid-template-columns: 1fr; }
 }
 
-/* --- INSPIRATION SLIDER --- */
 @media (max-width: 1024px) {
     .inspiration-section {
         flex-direction: column;
         padding-left: 0;
         text-align: center;
     }
-
-    .ins-text-content {
-        width: 90%;
-    }
-
-    .ins-slider-container {
-        width: 100%;
-        height: 420px;
-    }
-
-    .slide {
-        width: 260px !important;
-        height: 340px !important;
-    }
-
-    .slider-track {
-        gap: 16px;
-    }
+    .ins-text-content { width: 90%; }
+    .ins-slider-container { width: 100%; height: 420px; }
+    .slide { width: 260px !important; height: 340px !important; }
 }
 
-@media (max-width: 600px) {
-    .slide {
-        width: 220px !important;
-        height: 300px !important;
-    }
-
-    .dots-container {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .arrow-btn {
-        right: 20px;
-    }
-}
-
-/* --- SHARE SETUP GRID --- */
-@media (max-width: 900px) {
-    .gallery-grid {
-        grid-template-columns: repeat(6, 1fr);
-        grid-template-rows: repeat(20, 35px);
-    }
-
-    /* auto-fit items */
-    .gallery-item {
-        grid-column: auto !important;
-        grid-row: auto !important;
-        height: 200px;
-    }
-}
-
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .gallery-grid {
         display: flex;
         flex-direction: column;
+        height: auto;
+        gap: 15px;
     }
-
     .gallery-item {
-        height: 220px;
-    }
-}
-
-/* --- FOOTER --- */
-@media (max-width: 900px) {
-    .footer {
-        padding: 40px 40px 20px;
-    }
-
-    .footer-container {
-        flex-direction: column;
-        gap: 30px;
-    }
-}
-
-@media (max-width: 600px) {
-    .footer {
-        padding: 30px 20px;
-    }
-
-    .footer-newsletter .input-box {
         width: 100%;
+        height: 250px;
+        grid-column: auto !important;
+        grid-row: auto !important;
     }
+}
+
+@media (max-width: 900px) {
+    .footer { padding: 40px 40px 20px; }
+    .footer-container { flex-direction: column; gap: 30px; }
 }
