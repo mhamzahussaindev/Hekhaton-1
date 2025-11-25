@@ -729,13 +729,28 @@ input[name="slider"] {
     font-weight: 600;
 }
 
+/* 🔥 FIX: FOOTER LINKS VERTICAL LAYOUT 🔥 */
+.footer-links {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-help {
+    display: flex;
+    flex-direction: column;
+}
+
 .footer-links a,
 .footer-help a {
-    margin-bottom: 10px;
+    display: block; /* Links are now block elements (vertical) */
+    margin-bottom: 25px; /* Spacing between vertical links */
+    font-weight: 500;
+    
     color: #000;
     text-decoration: none;
     transition: color 0.3s ease;
 }
+/* 🔥 END OF FIX 🔥 */
 
 .footer-links a:hover,
 .footer-help a:hover {
